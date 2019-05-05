@@ -1,0 +1,20 @@
+<!--pages/main/main.wxml-->
+  <button
+  class='square'
+  >
+  扫一扫
+  </button>
+
+  <button
+  class='left' 
+  size='default'
+  bindtap='bindBill'
+  >账单
+  </button>
+
+  <button
+  class='right'
+  size='default'
+  bindtap='bindMe'
+  >我的
+  </button>
