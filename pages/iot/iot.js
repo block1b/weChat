@@ -1,13 +1,8 @@
-// pages/me/me.js
+// pages/iot/iot.js
 Page({
-  bindBalance: function () {
+  bindRegistIot: function () {
     wx.navigateTo({
-      url: '../balance/balance'
-    })
-  },
-  bindIot: function () {
-    wx.navigateTo({
-      url: '../iot/iot'
+      url: '../registIot/registIot'
     })
   },
   /**

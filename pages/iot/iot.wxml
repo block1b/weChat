@@ -1,0 +1,15 @@
+<!--pages/iot/iot.wxml-->
+<text>pages/iot/iot.wxml</text>
+<button
+bindtap='bindRegistIot'
+type='primary'
+>
+添加
+</button>
+<view
+class='squre'
+>
+设备信息
+list
+[禁用|共享]
+</view>

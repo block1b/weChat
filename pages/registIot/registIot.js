@@ -1,14 +1,10 @@
-// pages/me/me.js
+// pages/registIot/registIot.js
 Page({
-  bindBalance: function () {
-    wx.navigateTo({
-      url: '../balance/balance'
-    })
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
-  bindIot: function () {
-    wx.navigateTo({
-      url: '../iot/iot'
-    })
+  formReset() {
+    console.log('form发生了reset事件')
   },
   /**
    * 页面的初始数据

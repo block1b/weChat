@@ -1,21 +1,22 @@
-<!--pages/main/main.wxml-->
-  <button
+<!--pages/rent/rent.wxml-->
+<text>pages/rent/rent.wxml</text>
+<view
   class='square'
   bindtap='bindRent'
   >
-  扫一扫
-  </button>
+  设备信息
+</view>
 
   <button
   class='left' 
   size='default'
   bindtap='bindBill'
-  >账单
+  >归还
   </button>
 
   <button
   class='right'
   size='default'
-  bindtap='bindMe'
-  >我的
+  bindtap='bindBill'
+  >租用
   </button>

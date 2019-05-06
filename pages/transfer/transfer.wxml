@@ -1,0 +1,10 @@
+<!--pages/transfer/transfer.wxml-->
+<text>pages/transfer/transfer.wxml</text>
+<view class="section">
+  <input placeholder="请输入金额" auto-focus />
+</view>
+<button
+type='primare'
+>
+确认
+</button>

@@ -4,7 +4,12 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/bill/bill",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/rent/rent",
+    "pages/balance/balance",
+    "pages/iot/iot",
+    "pages/transfer/transfer",
+    "pages/registIot/registIot"
   ],
   "window": {
     "backgroundTextStyle": "light",

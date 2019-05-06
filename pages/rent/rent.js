@@ -1,13 +1,8 @@
-// pages/me/me.js
+// pages/rent/rent.js
 Page({
-  bindBalance: function () {
+  bindBill: function () {
     wx.navigateTo({
-      url: '../balance/balance'
-    })
-  },
-  bindIot: function () {
-    wx.navigateTo({
-      url: '../iot/iot'
+      url: '../bill/bill'
     })
   },
   /**

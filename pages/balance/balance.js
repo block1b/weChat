@@ -1,13 +1,8 @@
-// pages/me/me.js
+// pages/balance/balance.js
 Page({
-  bindBalance: function () {
+  bindTransfer: function () {
     wx.navigateTo({
-      url: '../balance/balance'
-    })
-  },
-  bindIot: function () {
-    wx.navigateTo({
-      url: '../iot/iot'
+      url: '../transfer/transfer'
     })
   },
   /**

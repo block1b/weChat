@@ -1,0 +1,23 @@
+<!--pages/balance/balance.wxml-->
+<text>pages/balance/balance.wxml</text>
+<view
+  class='square'
+  >
+  余额信息
+</view>
+
+  <button
+  class='left' 
+  size='default'
+  bindtap='bindTransfer'
+  type='primary'
+  >充值
+  </button>
+
+  <button
+  class='right'
+  size='default'
+  bindtap='bindTransfer'
+  type='warn'
+  >提现
+  </button>

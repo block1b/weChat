@@ -1,5 +1,10 @@
 // pages/main/main.js
 Page({
+  bindRent: function () {
+    wx.navigateTo({
+      url: '../rent/rent'
+    })
+  },
   bindBill: function () {
     wx.navigateTo({
       url: '../bill/bill'

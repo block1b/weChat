@@ -1,15 +1,6 @@
-// pages/me/me.js
+// pages/transfer/transfer.js
 Page({
-  bindBalance: function () {
-    wx.navigateTo({
-      url: '../balance/balance'
-    })
-  },
-  bindIot: function () {
-    wx.navigateTo({
-      url: '../iot/iot'
-    })
-  },
+
   /**
    * 页面的初始数据
    */
