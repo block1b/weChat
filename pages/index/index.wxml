@@ -16,9 +16,4 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 
-  <button
-  bindtap='bindSecretKey'
-  >
-  获取密钥
-  </button>
 </view>

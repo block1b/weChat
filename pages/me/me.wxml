@@ -10,3 +10,13 @@ bindtap='bindIot'
 >
 设备
 </button>
+
+<button
+  bindtap='bindSecretKey'
+  >
+  获取密钥
+</button>
+
+<view>
+{{keyPair.publicKey}}
+</view>
