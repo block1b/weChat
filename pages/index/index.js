@@ -9,6 +9,13 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  bindSecretKey: function(){
+    console.log('获取密钥');
+    // 在本地用户文件目录下创建一个文件 hello.txt，写入内容
+    const fs = wx.getFileSystemManager()
+    fs.writeFileSync(`${wx.env.USER_DATA_PATH}/secretKey.txt`, '{"public_key":"1","private_key":"a"}', 'utf8');
+    console.log(fs.readFileSync(`${ wx.env.USER_DATA_PATH }/secretKey.txt`,'utf8'));
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({

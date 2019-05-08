@@ -1,5 +1,21 @@
 // pages/main/main.js
 Page({
+  bindScan: function () {
+    wx.scanCode({
+      success(res) {
+        console.log(res);
+
+        wx.setStorage({
+          key: "deviceId",
+          data: res.result
+        });
+        wx.navigateTo({
+          url: '../rent/rent',
+        });
+      }
+    })
+  },
+  // bindRent unused
   bindRent: function () {
     wx.navigateTo({
       url: '../rent/rent'

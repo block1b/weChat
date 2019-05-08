@@ -24,7 +24,14 @@
   </view>
   
   <view class="btn-area">
-    <button form-type="submit" type='primary'>Submit</button>
-    <button form-type="reset" type='warn'>Reset</button>
+    <button form-type="reset" type='warn' class='left'>Reset</button>
+    <button form-type="submit" type='primary' class='right'>Submit</button>
   </view>
 </form>
+
+<button
+bindtap='bindQRcode'
+>
+生成二维码
+</button>
+<canvas style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>

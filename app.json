@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/main/main",
     "pages/index/index",
+    "pages/main/main",
     "pages/logs/logs",
     "pages/bill/bill",
     "pages/me/me",
@@ -9,7 +9,8 @@
     "pages/balance/balance",
     "pages/iot/iot",
     "pages/transfer/transfer",
-    "pages/registIot/registIot"
+    "pages/registIot/registIot",
+    "pages/qrcode/qrcode"
   ],
   "window": {
     "backgroundTextStyle": "light",

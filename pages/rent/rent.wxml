@@ -5,6 +5,7 @@
   bindtap='bindRent'
   >
   设备信息
+  <text>{{deviceInfo}}</text>
 </view>
 
   <button

@@ -1,4 +1,5 @@
 // pages/rent/rent.js
+
 Page({
   bindBill: function () {
     wx.navigateTo({
@@ -9,14 +10,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    deviceInfo: '暂无',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var thisBlock = this; // this作用域不包括success中
+    wx.getStorage({
+      key: 'deviceId',
+      success: function (res) {
+        console.log("加载设备"+res.data+"详细信息");
+        thisBlock.setData({
+          deviceInfo: 'balabala'+res.data,
+        })
+      }
+    })
   },
 
   /**

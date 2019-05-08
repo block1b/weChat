@@ -1,7 +1,7 @@
 <!--pages/main/main.wxml-->
   <button
   class='square'
-  bindtap='bindRent'
+  bindtap='bindScan'
   >
   扫一扫
   </button>
