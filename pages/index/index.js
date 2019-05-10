@@ -8,7 +8,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    mqtt_broker_addr: "192.168.113.6:8083"
   },
   
   //事件处理函数
@@ -81,7 +82,7 @@ Page({
   },
 
   mqtt_connect: function (clientId) {
-    var client = new MQTT.Client("ws://192.168.113.6:8083/mqtt", clientId);
+    var client = new MQTT.Client("ws://" + this.data.mqtt_broker_addr +"/mqtt", clientId);
     var that = this;
     //connect to  MQTT broker
     var connectOptions = {
@@ -126,6 +127,17 @@ Page({
           }
         };
       },
+      onFailure: function (option) {
+        console.log(option);
+        //去除按钮上的加载标志
+        that.setData({
+          btn_loading: false
+        });
+        wx.showModal({
+          //title: msg.destinationName,
+          content: option.errorMessage
+        });
+      }
     };
     client.connect(connectOptions);
   },

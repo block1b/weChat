@@ -18,5 +18,6 @@ bindtap='bindIot'
 </button>
 
 <view>
+密钥：
 {{keyPair.publicKey}}
 </view>
