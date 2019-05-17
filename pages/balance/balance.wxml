@@ -4,6 +4,7 @@
   class='square'
   >
   余额信息
+  {{balanceInfo.balance}}
 </view>
 
   <button

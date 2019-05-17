@@ -9,7 +9,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    mqtt_broker_addr: "192.168.113.6:8083"
+    mqtt_broker_addr: "192.168.0.106:8083"
   },
   
   //事件处理函数
@@ -115,6 +115,13 @@ Page({
                 },
               });
             }
+          }
+          var repTopic2 = app.globalData.userInfo.nickName + "/deviceInfo";
+          if (msg.topic == repTopic2) {
+            wx.setStorage({
+              key: "deviceInfo",
+              data: JSON.stringify(msg.payloadString),
+            });
           }
         };
 

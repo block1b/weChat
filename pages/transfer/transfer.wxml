@@ -1,6 +1,6 @@
 <!--pages/transfer/transfer.wxml-->
 <text>pages/transfer/transfer.wxml</text>
-<view class="section">
+<view class="section picker">
   <input placeholder="请输入金额" auto-focus />
 </view>
 <button

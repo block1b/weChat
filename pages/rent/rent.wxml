@@ -2,22 +2,22 @@
 <text>pages/rent/rent.wxml</text>
 <view
   class='square'
-  bindtap='bindRent'
+  bindtap='bindFlash'
   >
   设备信息
-  <text>{{deviceInfo}}</text>
+  <text>{{iotInfo.iotName}}{{iotInfo.status}}</text>
 </view>
 
   <button
   class='left' 
   size='default'
-  bindtap='bindBill'
+  bindtap='bindReturn'
   >归还
   </button>
 
   <button
   class='right'
   size='default'
-  bindtap='bindBill'
+  bindtap='bindRent'
   >租用
   </button>

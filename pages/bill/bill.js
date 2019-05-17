@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bills:["无"],
   },
 
   /**
@@ -13,6 +13,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('加载用户账单');
+    this.subpub("billInfo");
   },
 
   /**
@@ -62,5 +63,40 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  subpub: function (topic) {
+    if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
+      // 订阅
+      var repTopic = app.globalData.userInfo.nickName + '/' + topic;
+      if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
+        app.globalData.mqtt_client.subscribe(repTopic, {
+          qos: 0,
+          onSuccess: function () {
+            console.log("sub success");
+          },
+          onFailure: function () {
+            console.log("sub err");
+          },
+        });
+      }
+      console.log("订阅响应topic done");
+      // 请求
+      if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
+        var reqTopic = 'smartServer/' + topic;
+        var msg = { "clientId": app.globalData.userInfo.nickName };
+        var qor = 0;
+        var retained = false;
+        app.globalData.mqtt_client.publish(
+          reqTopic,
+          JSON.stringify(msg),
+          qor,
+          retained
+        );
+      }
+      console.log("publish success");
+    } else {
+      console.log("client invalid");
+    }
+  },
 })

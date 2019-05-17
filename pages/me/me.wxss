@@ -1,1 +1,7 @@
 /* pages/me/me.wxss */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+  word-wrap:break-word;
+}

@@ -9,7 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    iotInfos:[
+      {'iotName': 'clock', 'status':'可用'},
+      {'iotName': 'clock2', 'status': '使用中' },
+    ],
   },
 
   /**

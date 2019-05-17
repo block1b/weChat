@@ -17,7 +17,7 @@ bindtap='bindIot'
   获取密钥
 </button>
 
-<view>
-密钥：
-{{keyPair.publicKey}}
+<view class='info-list'>
+<text>公钥：{{keyPair.publicKey}}</text>
+<text>私钥：{{keyPair.privateKey}}</text>
 </view>

@@ -1,1 +1,7 @@
 /* pages/transfer/transfer.wxss */
+.picker{
+	width:80%;
+	border:1px solid black;
+	margin:4%;
+	padding:6px;
+}
