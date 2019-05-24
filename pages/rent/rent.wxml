@@ -4,8 +4,11 @@
   class='square'
   bindtap='bindFlash'
   >
-  设备信息
-  <text>{{iotInfo.iotName}}{{iotInfo.status}}</text>
+  <text>设备名：\t\t\t\t{{iotInfo.device_name}} \n</text>
+  <text>设备信息：{{iotInfo.device_info}} \n</text>
+  <text>设备状态：{{iotInfo.status}} \n</text>
+  <text>收费规则：{{iotInfo.ruler}} \n</text>
+
 </view>
 
   <button

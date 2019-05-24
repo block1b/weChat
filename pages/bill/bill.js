@@ -1,4 +1,5 @@
 // pages/bill/bill.js
+var app = getApp();
 Page({
 
   /**
@@ -13,7 +14,18 @@ Page({
    */
   onLoad: function (options) {
     console.log('加载用户账单');
-    this.subpub("billInfo");
+    this.subpub("billInfo",
+      { "clientId": "WeChat", "user": { "nice_name": "admin", "private_key": "HwLCf9fbhm6BHTagY5aC1uVKR6sz57h7viuS8DUR9x34", "public_key": "3PKKhLTbaFSjpjdEtNYqPTSrgp17Vur25NwVjQNKK7Hm", "type": "balance", "id": "main", "asset_id": "d6464d9f40ef5656c307a7750a2ac6d2dc76835f7c0fd188ff6d866bd12eb7de" } }
+    );
+    var thisBlock = this;
+    wx.getStorage({
+      key: 'billInfo',
+      success: function (res) {
+        thisBlock.setData({
+          bills: res.data,
+        })
+      }
+    });
   },
 
   /**
@@ -65,7 +77,7 @@ Page({
 
   },
 
-  subpub: function (topic) {
+  subpub: function (topic,msgPayload) {
     if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
       // 订阅
       var repTopic = app.globalData.userInfo.nickName + '/' + topic;
@@ -84,7 +96,7 @@ Page({
       // 请求
       if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
         var reqTopic = 'smartServer/' + topic;
-        var msg = { "clientId": app.globalData.userInfo.nickName };
+        var msg = msgPayload;
         var qor = 0;
         var retained = false;
         app.globalData.mqtt_client.publish(

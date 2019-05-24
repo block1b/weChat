@@ -1,10 +1,10 @@
 <!--pages/transfer/transfer.wxml-->
 <text>pages/transfer/transfer.wxml</text>
-<view class="section picker">
-  <input placeholder="请输入金额" auto-focus />
-</view>
-<button
-type='primare'
->
-确认
-</button>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='picker'>
+    <input name="money" placeholder='输入金额'></input>
+  </view>
+  <view class="btn-area">
+    <button form-type="submit" type='primary'>Submit</button>
+  </view>
+</form>
