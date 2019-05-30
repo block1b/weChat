@@ -9,7 +9,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    mqtt_broker_addr: "192.168.113.6:8083"
+    mqtt_broker_addr: "192.168.0.111:8083"
   },
   
   //事件处理函数
