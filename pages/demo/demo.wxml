@@ -1,0 +1,9 @@
+<!--pages/demo/demo.wxml-->
+<text>pages/demo/demo.wxml</text>
+初始化
+
+<button
+bindtap='bindInit'
+>
+init
+</button>

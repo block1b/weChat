@@ -3,13 +3,14 @@
 <view
   class='square'
   >
-  余额信息
+  余额：
+  {{balanceInfo.amount}}￥
 </view>
 
   <button
   class='left' 
   size='default'
-  bindtap='bindTransfer'
+  bindtap='bindRecharge'
   type='primary'
   >充值
   </button>
@@ -17,7 +18,7 @@
   <button
   class='right'
   size='default'
-  bindtap='bindTransfer'
+  bindtap='bindWithdrawal'
   type='warn'
   >提现
   </button>

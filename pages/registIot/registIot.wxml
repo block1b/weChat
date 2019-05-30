@@ -1,30 +1,40 @@
 <!--pages/registIot/registIot.wxml-->
 <text>pages/registIot/registIot.wxml</text>
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view class="section section_gap">
-    <view class="section__title">switch</view>
-    <switch name="switch" />
+  
+  <view class="picker">
+    <input name="device_id" placeholder="请填写设备号" />
   </view>
-  <view class="section">
-    <view class="section__title">input</view>
-    <input name="input" placeholder="please input here" />
+  <view class='picker'>
+    <input name="device_name" placeholder='请填写设备名'/>
   </view>
-  <view class="section section_gap">
-    <view class="section__title">radio</view>
-    <radio-group name="radio-group">
+  <view class='picker'>
+    <input name="device_info" placeholder='请填写设备描述' />
+  </view>
+  <view class="section section_gap picker">
+    <radio-group name="status">
       <label>
-        <radio value="radio1" />
-        radio1
+        <radio value="CanUse" />
+        共享
       </label>
       <label>
-        <radio value="radio2" />
-        radio2
+        <radio value="UnUse" />
+        禁用
       </label>
     </radio-group>
   </view>
-  
+  <view class='picker'>
+    <input name="ruler" placeholder='收费标准(0.00￥/m)'></input>
+  </view>
   <view class="btn-area">
-    <button form-type="submit" type='primary'>Submit</button>
-    <button form-type="reset" type='warn'>Reset</button>
+    <button form-type="reset" type='warn' class='left'>Reset</button>
+    <button form-type="submit" type='primary' class='right'>Submit</button>
   </view>
 </form>
+
+<button
+bindtap='bindQRcode'
+>
+生成二维码
+</button>
+<canvas style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>

@@ -1,4 +1,5 @@
 // pages/transfer/transfer.js
+var app = getApp();
 Page({
 
   /**
@@ -7,7 +8,24 @@ Page({
   data: {
 
   },
-
+  formSubmit(e) {
+    console.log("py");
+    var thisBlock = this;
+    wx.getStorage({
+      key: 'transferType',
+      success: function (res) {
+        console.log("py 类型：", res.data, e.detail.value.money);
+        thisBlock.subpub("useBalance",
+          { "clientId": "WeChat", "a_user": { "cost_type": "recharge", "money": "50", "nice_name": "alice", "private_key": "88L2BJC9eNtSWhpPwWqqsLDRGz7aBPhuRNyfsWx4QxWR", "public_key": "HWkENox4DM4Tp3qSfYW8igndpog9GpKFzB7Tp7yXgpBq", "type": "balance", "id": "main", "asset_id": "c279f15ce6414a8c6e6e07313f93cf5c124caeeb30bf5a4ab8564c3fcdc626e3" }, "b_user": { "nice_name": "admin", "private_key": "HwLCf9fbhm6BHTagY5aC1uVKR6sz57h7viuS8DUR9x34", "public_key": "3PKKhLTbaFSjpjdEtNYqPTSrgp17Vur25NwVjQNKK7Hm", "type": "balance", "id": "main", "asset_id": "c279f15ce6414a8c6e6e07313f93cf5c124caeeb30bf5a4ab8564c3fcdc626e3" } }
+        );
+      }
+    });
+    // test
+    wx.navigateTo({
+      url: '../balance/balance'
+    })
+  },
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,5 +80,45 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  subpub: function (topic, msgPayload) {
+    if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
+      // 订阅
+      var repTopic = app.globalData.mqttClientId + '/' + topic;
+      if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
+        app.globalData.mqtt_client.subscribe(repTopic, {
+          qos: 0,
+          onSuccess: function () {
+            console.log("sub success");
+          },
+          onFailure: function () {
+            console.log("sub err");
+          },
+        });
+      }
+      console.log("订阅响应topic done");
+      // 请求
+      if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
+        var reqTopic = 'smartServer/' + topic;
+        var msg = msgPayload;
+        var qor = 0;
+        var retained = false;
+        app.globalData.mqtt_client.publish(
+          reqTopic,
+          JSON.stringify(msg),
+          qor,
+          retained
+        );
+      }
+      console.log("publish success");
+    } else {
+      console.log("client invalid");
+      wx.showToast({
+        title: 'loading',
+        icon: 'loading',
+        duration: 2000
+      });
+    }
   }
 })

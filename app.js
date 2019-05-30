@@ -34,6 +34,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    mqtt_client: null,
+    mqttClientId: "WeChat",
+    keyPair: null,
+    balance_asset_id: "",
+    iot_asset_ids :[],
   }
 })

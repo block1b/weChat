@@ -2,14 +2,18 @@
   "pages": [
     "pages/main/main",
     "pages/index/index",
+    
+    "pages/demo/demo",
+    
     "pages/logs/logs",
     "pages/bill/bill",
     "pages/me/me",
     "pages/rent/rent",
     "pages/balance/balance",
     "pages/iot/iot",
+    "pages/registIot/registIot",
     "pages/transfer/transfer",
-    "pages/registIot/registIot"
+    "pages/qrcode/qrcode"
   ],
   "window": {
     "backgroundTextStyle": "light",
