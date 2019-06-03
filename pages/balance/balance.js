@@ -28,6 +28,24 @@ Page({
     balanceInfo: {'amount':'0'},
   },
 
+  bindFlash: function () {
+    console.log("刷新余额");
+    // 刷新页面
+    var thisBlock = this;
+    // 查询余额
+    thisBlock.subpub('balanceInfo',
+      { "clientId": "WeChat", "user": { "nice_name": "alice", "private_key": "88L2BJC9eNtSWhpPwWqqsLDRGz7aBPhuRNyfsWx4QxWR", "public_key": "HWkENox4DM4Tp3qSfYW8igndpog9GpKFzB7Tp7yXgpBq", "type": "balance", "id": "main", "asset_id": "d6464d9f40ef5656c307a7750a2ac6d2dc76835f7c0fd188ff6d866bd12eb7de" } }
+    );
+    wx.getStorage({
+      key: 'balanceInfo',
+      success: function (res) {
+        thisBlock.setData({
+          balanceInfo: res.data,
+        })
+      }
+    });
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -35,9 +53,9 @@ Page({
     var thisBlock = this;
     // 查询余额
     thisBlock.subpub('balanceInfo',
-      { "clientId": "WeChat", "user": { "nice_name": "admin", "private_key": "HwLCf9fbhm6BHTagY5aC1uVKR6sz57h7viuS8DUR9x34", "public_key": "3PKKhLTbaFSjpjdEtNYqPTSrgp17Vur25NwVjQNKK7Hm", "type": "balance", "id": "main", "asset_id": "c279f15ce6414a8c6e6e07313f93cf5c124caeeb30bf5a4ab8564c3fcdc626e3" } }
+      { "clientId": "WeChat", "user": { "nice_name": "alice", "private_key": "88L2BJC9eNtSWhpPwWqqsLDRGz7aBPhuRNyfsWx4QxWR", "public_key": "HWkENox4DM4Tp3qSfYW8igndpog9GpKFzB7Tp7yXgpBq", "type": "balance", "id": "main", "asset_id": "d6464d9f40ef5656c307a7750a2ac6d2dc76835f7c0fd188ff6d866bd12eb7de" } }
     );
-    // 刷新页面 todo
+    // 刷新页面
     wx.getStorage({
       key: 'balanceInfo',
       success: function (res) {
@@ -52,7 +70,17 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log("渲染完成");
+    // 刷新页面
+    var thisBlock = this;
+    wx.getStorage({
+      key: 'balanceInfo',
+      success: function (res) {
+        thisBlock.setData({
+          balanceInfo: res.data,
+        })
+      }
+    });
   },
 
   /**

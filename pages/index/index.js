@@ -29,7 +29,9 @@ Page({
         this.mqtt_connect(app.globalData.mqttClientId);
       }
     }
-    
+    // 初始化 gloable
+    app.globalData.userInfo = {"nickName":"block"};
+
     wx.navigateTo({
       url: '../main/main'
     })
@@ -98,7 +100,7 @@ Page({
         app.globalData.mqtt_client = client;
         client.onMessageArrived = function (msg) {
           // 路由
-          console.log("receive topic :"+msg.topic+"payload: "+msg.payloadString);
+          console.log("receive topic :"+msg.topic+" payload: "+msg.payloadString);
           var repTopic1 = app.globalData.mqttClientId + "/secretKey";
           if (msg.topic == repTopic1){
             // 保存密钥到本地文件
@@ -161,7 +163,7 @@ Page({
             }
           }
           // iotAssetIds
-          var repTopic6 = app.globalData.mqttClientId + "/balanceAssetId";
+          var repTopic6 = app.globalData.mqttClientId + "/iotAssetId";
           if (msg.topic == repTopic6) {
             // 写入文件，刷新缓存
             var text = msg.payloadString;
@@ -186,6 +188,20 @@ Page({
               console.log("读取本地设备资产记录失败");
             }
           }
+
+          // rent
+          var repTopic7 = app.globalData.mqttClientId + "/rentIot";
+          if (msg.topic == repTopic7) {
+            console.log("租用结果",msg.payloadString);
+            
+          }
+          // return
+          var repTopic8 = app.globalData.mqttClientId + "/returnIot";
+          if (msg.topic == repTopic8) {
+            console.log("归还结果", msg.payloadString);
+
+          }
+
         };
 
         client.onConnectionLost = function (responseObject) {

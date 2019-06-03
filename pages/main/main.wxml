@@ -2,7 +2,7 @@
   <button
   class='square'
   bindtap='bindScan'
-  style='background-image:url(../images/scan.png)'
+  style='background-image:url(../images/scan.jpg)'
   >
   扫一扫
   </button>

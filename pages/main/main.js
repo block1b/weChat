@@ -2,18 +2,26 @@
 var app = getApp();
 Page({
   bindScan: function () {
-    wx.scanCode({
-      success(res) {
-        console.log(res);
-        wx.setStorage({
+    // 扫一扫组件需要连接外网
+    // wx.scanCode({
+    //   success(res) {
+    //     console.log(res);
+    //     wx.setStorage({
+    //       key: "iotAssetId",
+    //       data: res.result
+    //     });
+    //     wx.navigateTo({
+    //       url: '../rent/rent',
+    //     });
+    //   }
+    // })
+    wx.setStorage({
           key: "iotAssetId",
-          data: res.result
+          data: '{"iotAsset":"027e9943c4f18f1873b00b08a02477d036ebe93cc98d8a551389ed252fe95ed1"}',
         });
-        wx.navigateTo({
-          url: '../rent/rent',
-        });
-      }
-    })
+    wx.navigateTo({
+      url: '../rent/rent',
+    });
   },
   // bindRent unused
   bindRent: function () {
@@ -93,6 +101,11 @@ Page({
       // 订阅刷新主题
       this.sub("balanceAssetId");
     }
+
+  // 订阅bill
+    this.sub("billInfo");
+  // 订阅balance
+    this.sub("balanceInfo");
   },
 
   /**
@@ -176,7 +189,7 @@ Page({
   },
   pub: function (topic, msgPayload) {
     if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
-      // 请求
+      // 请求 smartServer/secretKey
       if (app.globalData.mqtt_client && app.globalData.mqtt_client.isConnected()) {
         var reqTopic = 'smartServer/' + topic;
         var msg = msgPayload;

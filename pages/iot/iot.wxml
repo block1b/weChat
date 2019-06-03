@@ -16,7 +16,7 @@ class='squre'
 
 <view class="container log-list">
   <block wx:for="{{iotInfos}}" wx:for-item="iotInfo">
-    <text class="log-item">{{index + 1}}. {{iotInfo.iotName}}{{iotInfo.status}}</text>
+    <text class="log-item">{{index + 1}}. {{iotInfo.device_name}} {{iotInfo.status}}</text>
     <text class="log-item">--------------------------------</text>
   </block>
   

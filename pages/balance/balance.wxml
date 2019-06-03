@@ -2,6 +2,7 @@
 <text>pages/balance/balance.wxml</text>
 <view
   class='square'
+  bindtap='bindFlash'
   >
   余额：
   {{balanceInfo.amount}}￥
